@@ -13,7 +13,6 @@ insert into tb_categoria (sabor,descricao,borda) value ("Moda da casa","Frango, 
 insert into tb_categoria (sabor,descricao,borda) value ("Vegana","Brócolis, queijo, molho de tomate","Recheaga com requeijão");
 insert into tb_categoria (sabor,descricao,borda) value ("Sensação","Chocolate, morango, granulado ","Recheada com chocolate");
 
-select*from tb_categoria;
 create table tb_pizza(
 id bigint auto_increment,
 tamanho varchar (200),
@@ -21,6 +20,7 @@ preco decimal (10,2),
 tempoPreparo varchar (200),
 promocaoDia varchar (200),
 categoria_id bigint,
+primary key(id),
 foreign key (categoria_id)references tb_categoria(id)
 );
 insert into tb_pizza (tamanho,preco,tempoPreparo,promoçaoDia,categoria_id) value ("Familía",29.90,"30 minutos","Quinta por R$21,90",2);

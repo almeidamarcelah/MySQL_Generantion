@@ -1,7 +1,7 @@
 create database db_farmacia_do_bem;
 use db_farmacia_do_bem;
 
-create table td_categorias(
+create table tb_categorias(
 id bigint auto_increment,
 codigo varchar(200),
 categoria varchar(200),
@@ -28,11 +28,11 @@ foreign key (categoria_id) references tb_categorias(id)
 
 insert into tb_produtos(nome,descricao,quantidade,preco,categoria_id) values ("Neosaldina","Para dores de cabeça intensas",10,11.8,1);
 insert into tb_produtos(nome,descricao,quantidade,preco,categoria_id) values ("Absorvente Intimus","Absorvente para a região intima feminina, 12 por 10",5,59.95,3);
-insert into tb_produtos(nome,descricao,quantidade,preco,categoria_id) values ("Rivotril","tranquilizante",10,2);
+insert into tb_produtos(nome,descricao,quantidade,preco,categoria_id) values ("Rivotril","tranquilizante",10,60.5,2);
 insert into tb_produtos(nome,descricao,quantidade,preco,categoria_id) values ("​Sertralina (Tolrest)","Antidepressivo",10,319.90,2);
 insert into tb_produtos(nome,descricao,quantidade,preco,categoria_id) values ("Shampoo e Condicionador","Tresemmé",4,59.60,4);
-insert into tb_produtos(nome,descricao,quantidade,preco,categoria_id) values ("Escova de bambu","Escova de dentes, material babu",10,3);
-insert into tb_produtos(nome,descricao,quantidade,preco,categoria_id) values ("Centrum","Vitamina C e D",5,5);
+insert into tb_produtos(nome,descricao,quantidade,preco,categoria_id) values ("Escova de bambu","Escova de dentes, material babu",10,98.90,3);
+insert into tb_produtos(nome,descricao,quantidade,preco,categoria_id) values ("Centrum","Vitamina C e D",5,24.80,5);
 insert into tb_produtos(nome,descricao,quantidade,preco,categoria_id) values ("buscopan","Cólicas menstrual",1,5.99,1);
 
 select*from tb_produtos;
@@ -45,11 +45,11 @@ select*from tb_produtos where preco >= 3 and preco>=60;
 
 select*from tb_produtos where nome like "%b%";
 
-select tb_categoria.codigo, tb_categoria.categoria, tb_categoria.controle, 
+select tb_categorias.codigo, tb_categorias.categoria, tb_categorias.controle, 
 tb_produtos.descricao, tb_produtos.quantidade, tb_produtos.preco, tb_produtos.preco,tb_produtos.categoria_id
-from tb_categoria inner join tb_produtos on tb_categoria.id = tb_produtos.categoria_id;
+from tb_categorias inner join tb_produtos on tb_categorias.id = tb_produtos.categoria_id;
 
-select tb_categoria.codigo, tb_categoria.categoria, tb_categoria.controle, 
+select tb_categorias.codigo, tb_categorias.categoria, tb_categorias.controle, 
 tb_produtos.descricao, tb_produtos.quantidade, tb_produtos.preco, tb_produtos.preco,tb_produtos.categoria_id
-from tb_categoria inner join tb_produtos on tb_categoria.id = tb_produtos.categoria_id
+from tb_categorias inner join tb_produtos on tb_categorias.id = tb_produtos.categoria_id
 where categoria_id = 1 or categoria_id = 2;
